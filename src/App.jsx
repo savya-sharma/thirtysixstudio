@@ -1,12 +1,9 @@
-
 import "./index.css";
 import Canvas from "./Canvas";
 import data from "./data";
 import LocomotiveScroll from "locomotive-scroll";
 import { useEffect, useState, useRef } from "react";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Circ, Expo } from "gsap/all";
 
 function App() {
   const [showCanvas, setShowCanvas] = useState(false);
@@ -74,9 +71,9 @@ function App() {
         {showCanvas &&
           data[0].map((canvasdets, index) => <Canvas details={canvasdets} />)}
         <div className="w-full relative z-[1] h-screen ">
-          <nav className="w-full p-8 flex justify-between z-50">
+          <nav className="w-full p-8 flex flex-col md:flex-row justify-between z-50 gap-8 md:gap-0">
             <div className="brand text-2xl font-md">thirtysixstudios</div>
-            <div className="links flex gap-10">
+            <div className="links flex flex-col md:flex-row gap-6 md:gap-10">
               {[
                 "What we do",
                 "Who we are",
@@ -93,35 +90,38 @@ function App() {
               ))}
             </div>
           </nav>
-          <div className="textcontainer  w-full px-[20%]">
-            <div className="text w-[50%]">
-              <h3 className="text-4xl leading-[1.2]">
+
+          <div className="textcontainer w-full px-4 md:px-[20%]">
+            <div className="text w-full md:w-[50%]">
+              <h3 className="text-2xl md:text-4xl leading-[1.2]">
                 At Thirtysixstudio, we build immersive digital experiences for
                 brands with a purpose.
               </h3>
-              <p className="text-lg w-[80%] mt-10 font-normal">
+              <p className="text-base md:text-lg w-full md:w-[80%] mt-6 md:mt-10 font-normal">
                 We are a team of designers, developers, and strategists who are
                 passionate about creating digital experiences that are both
                 beautiful and functional.
               </p>
-              <p className="text-md mt-10">scroll</p>
+              <p className="text-sm md:text-md mt-8 md:mt-10">scroll</p>
             </div>
           </div>
+
           <div className="w-full absolute bottom-0 left-0">
             <h1
               ref={headingref}
-              className="text-[17rem] font-normal tracking-tight leading-none pl-5"
+              className="text-[4rem] md:text-[15rem] font-normal tracking-tight leading-none pl-2 md:pl-5"
             >
               Thirtysixstudios
             </h1>
           </div>
         </div>
       </div>
-      <div className="w-full relative h-screen  mt-32 px-10">
+
+      <div className="w-full relative h-[80vh] md:h-screen mt-14 md:mt-32 px-4 md:px-10">
         {showCanvas &&
           data[1].map((canvasdets, index) => <Canvas details={canvasdets} />)}
-        <h1 className="text-8xl tracking-tighter">about the brand</h1>
-        <p className="text-4xl leading-[1.8] w-[80%] mt-10 font-light">
+        <h1 className="text-4xl md:text-8xl tracking-tighter">about the brand</h1>
+        <p className="text-lg md:text-4xl leading-[1.6] md:leading-[1.8] w-full md:w-[80%] mt-6 md:mt-10 font-light">
           we are a team of designers, developers, and strategists who are
           passionate about creating digital experiences that are both beautiful
           and functional, we are a team of designers, developers, and
@@ -129,11 +129,13 @@ function App() {
           are both beautiful and functional.
         </p>
 
-        <img
-          className="w-[80%] mt-10"
-          src="https://directus.funkhaus.io/assets/b3b5697d-95a0-4af5-ba59-b1d423411b1c?withoutEnlargement=true&fit=outside&width=1400&height=1400"
-          alt=""
-        />
+        <div className="w-[80vw] h-[50vw] md:w-[30vw] md:h-[30vw] bg-purple-400 mt-10">
+          <img
+            className="w-full h-full object-cover"
+            src="https://i.pinimg.com/1200x/f6/93/de/f693de2f6cfafeacb63fce52d8d07b13.jpg"
+            alt=""
+          />
+        </div>
       </div>
     </>
   );

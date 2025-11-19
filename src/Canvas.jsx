@@ -49,10 +49,10 @@ function Canvas({ details }) {
       data-scroll
       data-scroll-speed={Math.random().toFixed(1)}
       ref={canvasRef}
-      className="absolute"
+      className="absolute w-full h-full max-w-[90vw] max-h-[60vw] md:max-w-none md:max-h-none"
       style={{
-        width: `${size * 1.8}px`,
-        height: `${size * 1.8}px`,
+        width: `min(${size * 1.8}px, 90vw)`,
+        height: `min(${size * 1.8}px, 60vw)`,
         top: `${top}%`,
         left: `${left}%`,
         zIndex: `${zIndex}`,
